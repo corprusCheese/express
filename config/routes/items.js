@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const itemsController = require("../../src/controllers/users.js")
 
 /* GET items listing. */
-router.get('/', function(req, res, next) {
-    res.send('items');
-});
+router.get('/', itemsController.index);
 
 module.exports = router;

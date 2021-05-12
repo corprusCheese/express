@@ -7,6 +7,6 @@ var itemsRouter = require('./routes/items');
 
 module.exports = function(app) {
     app.use('/', indexRouter);
-    app.use('/users', usersRouter);
-    app.use('/items', itemsRouter);
+    app.use('/api/v1/users', usersRouter);
+    app.use('/api/v1/items', itemsRouter);
 }

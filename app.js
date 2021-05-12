@@ -1,10 +1,23 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var app = express();
+const app = express();
+
+/* database */
+
+const MongoClient = require("mongodb").MongoClient;
+
+// создаем объект MongoClient и передаем ему строку подключения
+const mongoClient = new MongoClient("mongodb://localhost:27017/", { useUnifiedTopology: true });
+mongoClient.connect(function(err, client){
+
+  const db = client.db("todo");
+  const usersCollection = db.collection("users");
+  const itemsCollection = db.collection("items");
+});
 
 /* routes */
 require("./config/routes.js")(app)
@@ -34,5 +47,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+const port = 3000
+
+app.listen(port, (err) => {
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+  console.log(`server is listening on ${port}`)
+})
 
 module.exports = app;
