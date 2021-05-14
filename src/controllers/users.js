@@ -1,14 +1,13 @@
-exports.index = function(req, res, next) {
-    collection.find().toArray(function(err, results){
+const userRepository = require('../repositories/userRepository');
 
-        console.log(results);
-        client.close();
-    });
-    res.send('respond with a resource');
+exports.index = function(req, res, next) {
+    userRepository.findAll().then((todos) => {
+        res.json(todos);
+    }).catch((error) => console.log(error));
 }
 
 exports.create = function(req, res, next) {
-    res.send('create');
+
 }
 
 exports.update = function(req, res, next) {
@@ -17,10 +16,6 @@ exports.update = function(req, res, next) {
 
 exports.delete = function(req, res, next) {
     res.send('delete');
-}
-
-exports.mock = function(req, res, next) {
-    res.send('mock');
 }
 
 exports.filter = function(req, res, next) {
