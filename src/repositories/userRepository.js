@@ -1,13 +1,17 @@
-const user = require('../models/user');
+const User = require('../models/user');
 
 class UserRepository {
-    constructor(model) {
-        this.model = model;
+    constructor() {
+        this.model = User;
     }
 
     findAll() {
         return this.model.find();
     }
+
+    findById(id) {
+        return this.model.findById(id);
+    }
 }
 
-module.exports = new UserRepository(user);
+module.exports = new UserRepository;
