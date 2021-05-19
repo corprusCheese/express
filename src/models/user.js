@@ -42,6 +42,10 @@ const userSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
+    },
+    role: {
+        type: mongoose.Schema.Types.ObjectId, // связь 1 ко многим - N users to 1 role
+        ref: "Role",
     }
 });
 

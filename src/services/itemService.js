@@ -1,6 +1,6 @@
 const Item = require('../models/item');
 
-class UserService {
+class ItemService {
     constructor() {
         this.model = Item;
     }
@@ -10,9 +10,12 @@ class UserService {
     }
 
     update(id, text) {
+
     }
 
     delete(id) {
         return this.model.findByIdAndDelete(id);
     }
 }
+
+module.exports = new ItemService();

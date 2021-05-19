@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const mongoose = require("mongoose");
 
 class UserService {
     constructor() {
@@ -7,6 +8,7 @@ class UserService {
 
     create({name, email, password}) {
         let newUser = {
+            _id: new mongoose.Types.ObjectId(),
             name: name,
             email: email,
             password: password
@@ -29,3 +31,5 @@ class UserService {
         return this.model.findByIdAndDelete(id);
     }
 }
+
+module.exports = new UserService();

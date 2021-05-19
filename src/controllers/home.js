@@ -1,3 +1,9 @@
-exports.index = function(req, res, next) {
-    res.render('index', { title: 'Express' });
+class HomeController {
+    index(req, res, next) {
+        res.render('index', { title: 'TodoApp Again' });
+    }
 }
+
+homeController = new HomeController()
+
+module.exports = homeController

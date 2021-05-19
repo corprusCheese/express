@@ -3,26 +3,11 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mongoose = require('mongoose');
 
 const app = express();
 
-const config = require('./config/config.js');
+require('./connect')
 
-mongoose.connect(config.DB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-// hardcode
-/*const User = require('./src/models/user');
-let newUser = new User({
-  _id: mongoose.Types.ObjectId(1),
-  email: "samson20100@yandex.ru",
-  password: "password",
-  name: "Nikita"
-})
-newUser.save();*/
 
 /* routes */
 require("./config/routes.js")(app)
