@@ -17,11 +17,13 @@ class UserController {
     }
 
     update(req, res, next) {
-        res.send('update');
+        let [id, name, email, password] = [req.query.id, req.query.name, req.query.email, req.query.password];
+        userService.update(id, {name: name, email:email, password:password})
     }
 
     delete(req, res, next) {
-        res.send('delete');
+        let id = req.query.id;
+        userService.delete(id)
     }
 
     filter(req, res, next) {

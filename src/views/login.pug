@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 Login page
+    p Here you can authenticate yourself
+
+    form(action='/login', method='POST')
+        div(style="width: 400px")
+            | Username or Email:
+            input(type='text', class="form-control", name='credentials', value='')
+            |  Password :
+            input(type='text', class="form-control", name='password', value='')
+        input(type='submit', class='btn btn-primary mt-3', value='Submit')
+
+    a(class='btn btn-secondary mt-2' href='/') Return to main page
