@@ -7,7 +7,7 @@ const logger = require('morgan');
 const app = express();
 
 require('./connect')
-
+const passport = require("passport");
 
 /* routes */
 require("./config/routes.js")(app)
