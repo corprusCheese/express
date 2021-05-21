@@ -7,7 +7,18 @@ const logger = require('morgan');
 const app = express();
 
 require('./connect')
-const passport = require("passport");
+
+// Configuring Passport
+const passport = require('passport');
+const expressSession = require('express-session');
+app.use(expressSession({
+  secret: 'mySecretKey',
+  resave: true,
+  saveUninitialized: true
+}));
+//app.use(expressSession({secret: 'mySecretKey'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 /* routes */
 require("./config/routes.js")(app)
