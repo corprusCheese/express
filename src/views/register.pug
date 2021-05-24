@@ -4,7 +4,7 @@ block content
     h1 Register page
     p Here you can create a new user
 
-    form(action='/v1/user', method='POST')
+    form(action='/api/auth/register', method='POST')
         div(style="width: 400px")
             | Username:
             input(type='text', class="form-control", name='name', value='')

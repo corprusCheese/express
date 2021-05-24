@@ -4,9 +4,9 @@ block content
     h1 Login page
     p Here you can authenticate yourself
 
-    form(action='/api/auth/login', method='GET')
+    form(action='/api/auth/login', method='POST')
         div(style="width: 400px")
-            | Username or Email:
+            | Username:
             input(type='text', class="form-control", name='name', value='')
             |  Password :
             input(type='text', class="form-control", name='password', value='')

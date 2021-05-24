@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const mongoose = require("mongoose");
+const roleRepository = require('../repositories/roleRepository')
 
 class UserService {
     constructor() {
@@ -11,7 +12,8 @@ class UserService {
             _id: new mongoose.Types.ObjectId(),
             name: name,
             email: email,
-            password: password
+            password: password,
+            role: roleRepository.getDefaultRoleId()
         }
 
         return this.model(newUser).save()
@@ -21,7 +23,8 @@ class UserService {
         let newUser = {
             name: name,
             email: email,
-            password: password
+            password: password,
+            role: roleRepository.getDefaultRoleId()
         }
 
         return this.model.findByIdAndUpdate(id, newUser)
