@@ -7,3 +7,15 @@ a {
   color: #00B7FF;
 }
 
+.default-form {
+    padding: 0; width: 250px; margin: auto;
+}
+
+.default-form-div {
+    width: 80px; display: inline-block;
+}
+
+.form-wrapper {
+    text-align: center;
+}
+

@@ -1,17 +1,25 @@
 extends layout
 
 block content
-    h1 Register page
-    p Here you can create a new user
+    div(class="form-wrapper")
 
-    form(action='/api/auth/register', method='POST')
-        div(style="width: 400px")
-            | Username:
-            input(type='text', class="form-control", name='name', value='')
-            | Email:
-            input(type='text', class="form-control", name='email', value='')
-            | Password:
-            input(type='text', class="form-control", name='password', value='')
-        input(type='submit', class='btn btn-primary mt-3', value='Submit')
+        h1 Register page
+        p Here you can create a new user
 
-    a(class='btn btn-secondary mt-2' href='/') Return to main page
+        form(action='/api/auth/register', method='POST', class = "default-form")
+            div
+                div
+                    div(class="default-form-div")
+                        | Username:
+                    input(type='text', class="form-control", name='name', value='')
+                div
+                    div(class="default-form-div")
+                        | Email:
+                    input(type='text', class="form-control", name='email', value='')
+                div
+                    div(class="default-form-div")
+                        | Password:
+                    input(type='text', class="form-control", name='password', value='')
+            input(type='submit', class='mt-2', value='Submit')
+
+        a( href='/') Return to main page

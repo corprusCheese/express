@@ -1,15 +1,20 @@
 extends layout
 
 block content
-    h1 Login page
-    p Here you can authenticate yourself
+    div(class="form-wrapper")
+        h1 Login page
+        p Here you can authenticate yourself
 
-    form(action='/api/auth/login', method='POST')
-        div(style="width: 400px")
-            | Username:
-            input(type='text', class="form-control", name='name', value='')
-            |  Password :
-            input(type='text', class="form-control", name='password', value='')
-        input(type='submit', class='btn btn-primary mt-3', value='Submit')
+        form(action='/api/auth/login', method='POST', class="default-form")
+            div
+                div
+                    div(class="default-form-div")
+                        | Username:
+                    input(type='text', class="form-control", name='name', value='')
+                div
+                    div(class="default-form-div")
+                        |  Password :
+                    input(type='text', class="form-control", name='password', value='')
+            input(type='submit', class='mt-2', value='Submit')
 
-    a(class='btn btn-secondary mt-2' href='/') Return to main page
+        a(href='/') Return to main page
