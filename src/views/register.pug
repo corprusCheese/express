@@ -3,14 +3,14 @@ extends layout
 block content
     div(class="form-wrapper")
 
-        h1 Register page
-        p Here you can create a new user
+        h1 #{register}
+        p #{register_desc}
 
         form(action='/api/auth/register', method='POST', class = "default-form")
             div
                 div
                     div(class="default-form-div")
-                        | Username:
+                        | #{username}:
                     input(type='text', class="form-control", name='name', value='')
                 div
                     div(class="default-form-div")
@@ -18,8 +18,8 @@ block content
                     input(type='text', class="form-control", name='email', value='')
                 div
                     div(class="default-form-div")
-                        | Password:
+                        | #{password}:
                     input(type='text', class="form-control", name='password', value='')
-            input(type='submit', class='mt-2', value='Submit')
+            input(type='submit', class='mt-2', value=`${submit}`)
 
-        a( href='/') Return to main page
+        a( href='/') #{return_home}

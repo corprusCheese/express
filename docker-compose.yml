@@ -11,7 +11,7 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      - ./config.ts:/docker-entrypoint-initdb.d/config.js
+      - ./config.js:/docker-entrypoint-initdb.d/config.js
       - mongodb:/data/db
 volumes:
   mongodb:

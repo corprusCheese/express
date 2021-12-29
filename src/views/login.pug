@@ -2,19 +2,19 @@ extends layout
 
 block content
     div(class="form-wrapper")
-        h1 Login page
-        p Here you can authenticate yourself
+        h1 #{login}
+        p #{login_desc}
 
         form(action='/api/auth/login', method='POST', class="default-form")
             div
                 div
                     div(class="default-form-div")
-                        | Username:
+                        | #{username}:
                     input(type='text', class="form-control", name='name', value='')
                 div
                     div(class="default-form-div")
-                        |  Password :
+                        |  #{password}:
                     input(type='text', class="form-control", name='password', value='')
-            input(type='submit', class='mt-2', value='Submit')
+            input(type='submit', class='mt-2', value=`${submit}`)
 
-        a(href='/') Return to main page
+        a(href='/') #{return_home}
