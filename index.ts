@@ -17,11 +17,12 @@ i18next.use(Backend).use(i18nextMiddleware.LanguageDetector).init({
 });
 app.use(i18nextMiddleware.handle(i18next));
 
+
 // подключение
 const mongoose = require("mongoose");
 
 // для моделей
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
 mongoose.connect("mongodb://corprusCheese:secret@0.0.0.0:27017", {
     useUnifiedTopology: true,

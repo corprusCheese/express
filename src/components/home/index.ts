@@ -1,13 +1,15 @@
-const dict = require('../utils/dict')
+import { Request, Response } from 'express'
 
-exports.index = function (req: any, res: { render: (arg0: string, arg1: any) => void; }) {
+let dict = require('../utils/dictionary')
+
+exports.index = function (req: Request, res: Response) {
     res.render('index', dict.dictionaryForPage(req, 'index'));
 }
 
-exports.login = function (req: any, res: { render: (arg0: string, arg1: any) => void; }) {
+exports.login = function (req: Request, res: Response) {
     res.render('login', dict.dictionaryForPage(req, 'login'));
 }
 
-exports.register = function (req: any, res: { render: (arg0: string, arg1: any) => void; }) {
+exports.register = function (req: Request, res: Response) {
     res.render('register', dict.dictionaryForPage(req, 'register'));
 }
